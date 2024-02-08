@@ -42,7 +42,7 @@ export default {
     </div>
   </div>
 </template>
-<style scoped>
+<style lang="scss" scoped>
 .nav-header {
   height: 100%;
   display: flex;

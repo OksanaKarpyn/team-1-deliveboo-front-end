@@ -37,7 +37,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 header{
-  background-color: salmon;
+  background-color: #FF5757;
   height: 100vh;
   width: 100%;
   nav{
@@ -52,6 +52,7 @@ header{
         font-weight: bold;
         width: 100px;
         text-align: center;;
+        transition: 0.5s all linear;
       }
     }
   }

@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "Header",
+  name: "HeaderApp",
   data() {
     return {
       menuItems: [
@@ -26,26 +26,34 @@ export default {
 };
 </script>
 <template>
-  <div class="nav-header">
-    <div class="container">
-      <nav class="navbar bg-body-tertiary">
-        <router-link to="/" class="navbar-brand">Deliveboo</router-link>
-        <ul class="nav nav-underline">
-          <li class="nav-item" v-for="(item, index) in menuItems" :key="index">
-            <router-link :to="{ name: item.routeName }" class="nav-link">
-              {{ item.label }}
-            </router-link>
-          </li>
-        </ul>
-        <a href="#" class="btn btn-outline-success">Accedi</a>
-      </nav>
-    </div>
-  </div>
+  <header>
+    <nav class="d-flex justify-content-end p-3">
+      <div class="d-flex justify-content-between align-items-center gap-3">
+        <a href="" class="navBtn">Accedi</a>
+        <a href="" class="navBtn"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+    </nav>
+  </header>
 </template>
 <style lang="scss" scoped>
-.nav-header {
-  height: 100%;
-  display: flex;
-  align-items: center;
+header{
+  background-color: salmon;
+  height: 100vh;
+  width: 100%;
+  nav{
+    div{
+      a{
+        background-color: green;
+        padding: 3px;
+        transform: rotate(-2deg);
+        color: black;
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-weight: bold;
+        width: 100px;
+        text-align: center;;
+      }
+    }
+  }
 }
 </style>

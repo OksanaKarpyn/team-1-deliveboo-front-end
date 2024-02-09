@@ -9,7 +9,8 @@ export const store = reactive({
    apidishes:'http://127.0.0.1:8000/api/api/dishes',
    dataDishes:null,
    selectedTypes: [],
-
+   singleRestaurant:null,
+   restaurantDishes: [],
 
    // ----------------funzioni ---------------------------------
 
@@ -22,7 +23,7 @@ export const store = reactive({
     fetchDataRestaurants() {
       axios.get(`${this.apirestaurants}`).then((response) => {
         this.dataRestaurants = response.data.results;
-       // console.log(this.dataRestaurants);
+       //console.log(this.dataRestaurants);
       });
     },
     fetchDataDishes(){
@@ -32,6 +33,7 @@ export const store = reactive({
       //console.log(this.dataDishes);
     })
     },
+   //  filtra ristoranti per tipologia
     filterRestaurantsByType() {
       if (this.selectedTypes.length === 0) {
         // Se nessuna tipologia è selezionata, mostra tutti i ristoranti
@@ -42,6 +44,16 @@ export const store = reactive({
           return restaurant.types.some(type => this.selectedTypes.includes(type.id));
         });
       }
-    }
-
+    },
+    fetchRestaurantDishes(id) {
+      axios.get(`${this.apirestaurants}/${id}`)
+        .then(response => {
+         this.singleRestaurant = response.data.result;
+          this.restaurantDishes = response.data.result.dishes; // Salva i piatti nel dato del negozio
+          console.log(this.restaurantDishes);
+        })
+        .catch(error => {
+          console.error('Errore nel recupero dei piatti del ristorante:', error);
+        });
+    },
 });

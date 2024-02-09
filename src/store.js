@@ -1,6 +1,7 @@
 import { reactive } from 'vue';
 import axios from 'axios';
 export const store = reactive({
+   urlImg:'http://127.0.0.1:8000/storage/',
    apitypes: "http://127.0.0.1:8000/api/api/types",
    dataTypes: null,
    apirestaurants: "http://127.0.0.1:8000/api/api/restaurants",

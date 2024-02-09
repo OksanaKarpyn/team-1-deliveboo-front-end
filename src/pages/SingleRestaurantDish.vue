@@ -2,7 +2,7 @@
 </script>
 <template>
    <div>
-      
+      sono single restaurant page
    </div>
 
 </template>

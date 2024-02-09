@@ -39,12 +39,14 @@
   <div class="row">
     <h3>ristoranti</h3>
     <div class="card" style="width: 14rem;" v-for="(restaurant,index) in store.filterRestaurantsByType()" :key="index">
-      <img v-if="restaurant.photo !== 'null'" :src="restaurant.photo" class="card-img-top" :alt="restaurant.name">
-      <img v-else src="https://picsum.photos/id/237/150/150" alt="">
-      <div class="card-body">
-        <p class="card-text">{{restaurant.activity_name}}</p>
-        <p class="card-text">{{restaurant.address}}</p>
-      </div>
+      <RouterLink :to="{name:'SingleRestaurant',params:{id:restaurant.id} }">
+        <img v-if="restaurant.photo !== 'null'" :src="`${store.urlImg}${restaurant.photo}`" class="card-img-top" :alt="restaurant.name">
+        <img v-else src="https://picsum.photos/id/237/150/150" alt="">
+        <div class="card-body">
+          <p class="card-text">{{restaurant.activity_name}}</p>
+          <p class="card-text">{{restaurant.address}}</p>
+        </div>
+      </RouterLink>
     </div>
   </div>
 </template>

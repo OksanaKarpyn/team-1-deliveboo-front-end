@@ -4,19 +4,19 @@
             <h3 class="text-center text-white fs-1 py-5">Ristoranti</h3>
             <ul class="list-unstyled d-flex flex-column gap-3">
                 <li v-for="restaurant in dataRestaurants" class="restaurant-card">
-                    <a href="" class="flex-column flex-sm-row">
-                        <img :src="dataRestaurants[2].full_photo_img" alt="Foto Ristorante" class="img-fluid">
+                    <RouterLink :to="{name: 'RestaurantDetail', params: { id: restaurant.id }}" class="flex-column flex-sm-row">
+                        <img :src="restaurant.full_photo_img" alt="Foto Ristorante" class="img-fluid">
                         <div>
                             <p class="fs-4 fw-bold">{{ restaurant.activity_name }}</p>
                             <p>{{ restaurant.description }}</p>
-                        <ul class="list-unstyled d-flex gap-3">
-                            <li v-for="type in restaurant.types" class="fw-bold bg-white p-2 text-dark rounded-2">
-                                {{ type.name }}
-                            </li>
-                        </ul>
-                        </div>
 
-                    </a>
+                            <ul class="list-unstyled d-flex gap-3" v-show="restaurant.types.length > 0">
+                                <li v-for="type in restaurant.types" class="fw-bold bg-white p-2 text-dark rounded-2">
+                                    {{ type.name }}
+                                </li>
+                            </ul>
+                        </div>
+                    </RouterLink>
                 </li>
             </ul>
         </div>
@@ -74,7 +74,7 @@ main {
         color: inherit;
         align-self: center;
         gap: 30px;
-        padding: 30px;        
+        padding: 30px;
     }
 }
 
@@ -83,6 +83,7 @@ main {
 
     a {
         justify-content: flex-start;
+
         &:hover::after {
             content: '\2192';
             align-self: center;
@@ -94,6 +95,7 @@ main {
 
 .restaurant-card:nth-child(even) {
     background-color: #FF5757;
+
     img {
         order: 2;
     }
@@ -101,6 +103,7 @@ main {
     a {
         justify-content: flex-end;
         text-align: end;
+
         &:hover::before {
             content: '\2190';
             align-self: center;

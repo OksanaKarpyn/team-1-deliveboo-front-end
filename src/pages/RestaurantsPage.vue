@@ -1,10 +1,12 @@
 <script>
   import axios from "axios";
   import Typologies from "../components/Typologies.vue";
+  import Main from "../components/Main.vue";
   export default {
     name: "RestaurantsPage",
     components: {
       Typologies,
+      Main,
     },
     data() {
       return {
@@ -49,6 +51,7 @@
   };
 </script>
 <template>
+  <Main></Main>
   <div>sono paggina restorante</div>
   <!-- tipologie -->
   <div class="row">

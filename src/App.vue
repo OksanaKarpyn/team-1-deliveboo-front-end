@@ -2,12 +2,14 @@
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 import Main from "./components/Main.vue";
+import HomePage from "./pages/HomePage.vue";
 export default {
   name: "app",
   components: {
     Header,
     Footer,
     Main,
+    HomePage,
   },
   data() {
     return {};

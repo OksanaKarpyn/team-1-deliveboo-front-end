@@ -1,16 +1,6 @@
 <script>
-import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
-import Main from "./components/Main.vue";
-import HomePage from "./pages/HomePage.vue";
 export default {
   name: "app",
-  components: {
-    Header,
-    Footer,
-    Main,
-    HomePage,
-  },
   data() {
     return {};
   },
@@ -21,8 +11,7 @@ export default {
 </script>
 
 <template>
-      <Header></Header>
-      <Main></Main>
+  <router-view></router-view>
 </template>
 
 <style lang="scss" scoped>

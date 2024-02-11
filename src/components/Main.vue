@@ -4,8 +4,8 @@
             <h3 class="text-center text-white fs-1 py-5">Ristoranti</h3>
             <ul class="list-unstyled d-flex flex-column gap-3">
                 <li v-for="restaurant in dataRestaurants" class="restaurant-card">
-                    <RouterLink :to="{name: 'RestaurantDetail', params: { id: restaurant.id }}" class="flex-column flex-sm-row">
-                        <img :src="restaurant.full_photo_img" alt="Foto Ristorante" class="img-fluid">
+                    <router-link  :to="{name: 'RestaurantDetail', params: {id: restaurant.id}}" class="flex-column flex-sm-row">
+                        <img :src="restaurant.full_photo_img" :alt="restaurant.activity_name" class="img-fluid">
                         <div>
                             <p class="fs-4 fw-bold">{{ restaurant.activity_name }}</p>
                             <p>{{ restaurant.description }}</p>
@@ -16,7 +16,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </RouterLink>
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -29,7 +29,7 @@ export default {
     name: 'MainApp',
     data() {
         return {
-            apirestaurants: "http://127.0.0.1:8000/api/api/restaurants",
+            apirestaurants: "http://127.0.0.1:8000/api/restaurants",
             dataRestaurants: null,
         }
     },
@@ -38,7 +38,6 @@ export default {
             axios.get(`${this.apirestaurants}`)
                 .then((response) => {
                     this.dataRestaurants = response.data.results;
-                    console.log(response);
                 });
         },
     },

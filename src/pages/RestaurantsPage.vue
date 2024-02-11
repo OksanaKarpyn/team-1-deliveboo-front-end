@@ -10,11 +10,11 @@
     },
     data() {
       return {
-        apitypes: "http://127.0.0.1:8000/api/api/types",
+        apitypes: "http://127.0.0.1:8000/api/types",
         dataTypes: null,
-        apirestaurants: "http://127.0.0.1:8000/api/api/restaurants",
+        apirestaurants: "http://127.0.0.1:8000/api/restaurants",
         dataRestaurants: null,
-        apidishes:'http://127.0.0.1:8000/api/api/dishes',
+        apidishes:'http://127.0.0.1:8000/api/dishes',
         dataDishes:null,
       };
     },
